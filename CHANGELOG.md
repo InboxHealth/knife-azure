@@ -5,10 +5,10 @@
 [Full Changelog](https://github.com/chef/knife-azure/compare/v1.7.0...v1.8.0)
 
 **Closed issues:**
-- Bootstrapping in Azurerm in not happenning fully. [/#449](https://github.com/chef/knife-azure/issues/449)
+- Bootstrapping in Azurerm is not happenning fully. [/#449](https://github.com/chef/knife-azure/issues/449)
 - Auto-Generated Storage Account Name can produce an Exception [/#434](https://github.com/chef/knife-azure/issues/434)
 - node_name in client.rb always has a '0' appended resulting in auth error [/#439](https://github.com/chef/knife-azure/issues/439)
-- Can not create vms in required availability set (ARM) [\#446](https://github.com/chef/knife-azure/issues/446)
+- Knife Azure does not work with berkshelf [\#423](https://github.com/chef/knife-azure/issues/423)
 - --node-ssl-verify-mode none' does not write appropriate value to resulting client.rb [\#435](https://github.com/chef/knife-azure/issues/435)
 - knife azure server delete doesn't delete servers joined to a domain [/#258](https://github.com/chef/knife-azure/issues/258)
 
@@ -26,7 +26,7 @@
 - Updated code for arm commands to use the latest azure-sdk gems [\#425](https://github.com/chef/knife-azure/pull/425)
 - Added support for daemon as task [/#420](https://github.com/chef/knife-azure/pull/420)
 - Added warning for --purge [/#418](https://github.com/chef/knife-azure/pull/418)
-- Adding --daemon option for chef extension. [\#417](https://github.com/chef/knife-azure/pull/417)
+- Added --daemon option for chef extension. [\#417](https://github.com/chef/knife-azure/pull/417)
 - Modified Windows behavior to fetch token details in ARM model as per the changes done in the 0.10.5 version of azure-xplat-cli [\#416](https://github.com/chef/knife-azure/pull/416)
 
 
