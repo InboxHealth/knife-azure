@@ -8,13 +8,13 @@ Details about the thing that changed that needs to get included in the Release N
 -->
 
 # knife-azure 1.8.0 release notes:
-In this release `--chef-service-interval` option is renamed to `--chef-daemon-interval`.
+In this release added 'daemon' option and renamed`--chef-service-interval` option to `--chef-daemon-interval`.
 
 Updated code to work with latest azure-sdk gems i.e. version 0.9.0.
 
 New options introduced:
 
-`--daemon` this allows user to select options to run chef-client as auto, service or scheduled task. This option works for windows node and --bootstrap-protocol to be 'cloud-api'.
+`--daemon` this allows user to select options to run chef-client as none, service or task. This option works for windows node and --bootstrap-protocol to be 'cloud-api'.
 
 Please file bugs or feature requests against the [KNIFE_AZURE](https://github.com/chef/knife-azure/issues) repository.
 More information on the contribution process for Chef projects can be found in the [Chef Contributions document](https://docs.chef.io/community_contributions.html).
