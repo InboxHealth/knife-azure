@@ -96,6 +96,7 @@ module Azure::ARM
         depVm2="[concat('Microsoft.Network/networkInterfaces/', variables('nicName'), copyIndex())]"
         computerName = "[concat(variables('vmName'),copyIndex())]"
         uri = "[concat('http://',variables('storageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',concat(variables('vmName'),copyIndex()),'.vhd')]"
+        data_uri = "[concat('http://',variables('storageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',concat(variables('vmName'),'_d_',copyIndex()),'.vhd')]"
         netid = "[resourceId('Microsoft.Network/networkInterfaces', concat(variables('nicName'), copyIndex()))]"
 
         # Extension Variables
@@ -118,6 +119,7 @@ module Azure::ARM
         depVm2="[concat('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
         computerName = "[variables('vmName')]"
         uri = "[concat('http://',variables('storageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('vmName'),'.vhd')]"
+        data_uri = "[concat('http://',variables('storageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('vmName'),'_d_.vhd')]"
         netid = "[resourceId('Microsoft.Network/networkInterfaces', variables('nicName'))]"
 
         # Extension Variables
@@ -424,7 +426,19 @@ module Azure::ARM
                     "uri"=> uri                  },
                   "caching"=> "ReadWrite",
                   "createOption"=> "FromImage"
-                }
+                },
+                "dataDisks" => [
+                    {
+                        "name"=> "[concat(variables('OSDiskname'),'-dataDisk0')]",
+                        "diskSizeGB" => 300,
+                      "lun"=> 0,
+                      "vhd"=> {
+                      "uri"=> data_uri
+                  },
+                      "caching"=> "ReadOnly",
+                      "createOption"=> "empty"
+                  }
+                ]
               },
               "networkProfile"=> {
                 "networkInterfaces"=> [
